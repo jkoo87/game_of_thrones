@@ -1,0 +1,13 @@
+<h1><%= @house.house %></h1>
+<h2>"<%= @house.words %>"</h2>
+<p><%= link_to "Edit", edit_house_path(@house) %></p>
+<img class = "houseBanner" src ="<%= @house.photo_url %>"/>
+<div><
+<p>Region: <%= @house.region %> </p>
+<% if @house.seat %>
+  <p>Seat: <%= @house.seat %> </p>
+<% end %>
+
+<%= link_to "Show members of #{@house.house}", house_characters_path(@house) %>
+
+</div>

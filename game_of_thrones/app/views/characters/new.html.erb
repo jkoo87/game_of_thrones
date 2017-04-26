@@ -1,0 +1,4 @@
+<h1>Add new character</h1>
+    <p class="housePhotoMiniWrapper"><%= link_to image_tag(@house.photo_url, class: "housePhotoMini"), house_path(@house) %><span><%= @house.house %><span><hr></p>
+
+<%= render "form" %>

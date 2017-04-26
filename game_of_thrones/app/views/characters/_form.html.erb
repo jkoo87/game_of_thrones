@@ -1,0 +1,46 @@
+<%= form_for [@house, @character], data: { confirm: "Are you done?"} do |f| %>
+  <div class="houseFormDiv">
+  <%= f.label :name %>
+  <%= f.text_field :name, size: '100' %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.label :title %>
+  <%= f.text_field :title, size: '100' %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.label "Photo Link" %>
+  <%= f.text_field :photo_url, size: '100' %>
+  </div>
+
+
+  <div class="houseFormDiv">
+  <%= f.label :family_relationship  %>
+  <%= f.text_field :family_relationship, size: '100' %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.label "Is #{@character.name} still Alive?"  %>
+  <%= f.radio_button :is_still_alive, "false" %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.label "Is #{@character.name} dead?"  %>
+  <%= f.radio_button :is_still_alive, "true" %>
+  </div>
+
+
+  <div class="houseFormDiv">
+  <%= f.submit "Save", class: "submitButton" %>
+  </div>
+
+  <% end  %>
+
+  <% if @character.id != nil %>
+  <div class="houseFormDiv">
+    <%= form_for [@house, @character], data: { confirm: "Do you really want to delete this post?"}, method: :delete do |f| %>
+      <%= f.submit "Delete", class: "deleteButton" %>
+    <% end  %>
+  </div>
+  <% end  %>

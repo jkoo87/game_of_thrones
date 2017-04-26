@@ -1,0 +1,16 @@
+<h1><%= @character.name %></h1>
+<p><%= link_to "Edit", edit_house_character_path(@house, @character) %></p>
+<p class="housePhotoMiniWrapper"><%= link_to image_tag(@house.photo_url, class: "housePhotoMini"), house_path(@house) %><span><%= @house.house %><span><hr></p>
+
+<div >
+<img class = "characterPhoto" src ="<%= @character.photo_url %>"/>
+<p>Title: <%= @character.title %></p>
+<% if @character.is_still_alive == true %>
+  <p>Status: DEAD </p>
+<% else %>
+  <p>Status: NOT DEAD YET </p>
+<% end %>
+<% if @character.family_relationship? %>
+  <p>Family Tree: <%= @character.family_relationship%> </p>
+<% end %>
+</div>

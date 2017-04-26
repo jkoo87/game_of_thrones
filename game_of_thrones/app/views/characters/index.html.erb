@@ -1,0 +1,41 @@
+
+
+
+<% if @house %>
+
+    <p class="housePhotoMiniWrapper"><%= link_to image_tag(@house.photo_url, class: "housePhotoMini"), house_path(@house) %><span><%= @house.house %><span><hr></p>
+    <p><%= link_to "Add new member", new_house_character_path(@house) %></p>
+      <% @house.characters.each do |character| %>
+        <div class="imageWrapper">
+          <% if character.is_still_alive == true %>
+            <%= link_to image_tag(character.photo_url, class: "housePhotoDead"), house_character_path(@house,character) %>
+            <span class="dead">DEAD</span>
+          <% else %>
+            <%= link_to image_tag(character.photo_url, class: "housePhoto"), house_character_path(@house,character) %>
+          <% end %>
+          <p class="housePhotoText"><%= character.name %></p>
+        </div>
+      <% end %>
+
+    <% else %>
+
+
+    <h1>Characters</h1>
+
+    <% @houses.each do |house| %>
+    <p class="housePhotoMiniWrapper"><%= link_to image_tag(house.photo_url, class: "housePhotoMini"), house_path(house) %><span><%= house.house %></span> <hr></p>
+      <p><%= link_to "Add new member", new_house_character_path(house) %></p>
+      <% house.characters.each do |character| %>
+        <div class="imageWrapper">
+          <% if character.is_still_alive == true %>
+            <%= link_to image_tag(character.photo_url, class: "housePhotoDead"), house_character_path(house,character) %>
+            <span class="dead">DEAD</span>
+          <% else %>
+            <%= link_to image_tag(character.photo_url, class: "housePhoto"), house_character_path(house,character) %>
+          <% end %>
+          <p class="housePhotoText"><%= character.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+<% end %>

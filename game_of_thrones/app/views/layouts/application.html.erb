@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GameOfThrones</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_Game_of_Thrones.png", class: "logo"),root_path%>
+    <nav class= "indexNav">
+      <%= link_to "||List of Great Houses||", houses_path, class: "navAnchor"%>
+      <%= link_to "||List of all Characters||", characters_path, class: "navAnchor"%>
+    </nav>
+
+    <% flash.each do |type, message| %>
+    <p class="flash <%= type %>"><%= message %></p>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

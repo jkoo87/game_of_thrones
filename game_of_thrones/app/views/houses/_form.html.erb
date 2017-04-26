@@ -1,0 +1,41 @@
+<%= form_for @house, data: { confirm: "Are you done?"} do |f| %>
+  <div class="houseFormDiv">
+  <%= f.label "House Name" %>
+  <%= f.text_field :house, size: '100' %>
+</div>
+
+
+  <div class="houseFormDiv">
+  <%= f.label :words %>
+  <%= f.text_field :words, size: '100' %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.label "Photo Link" %>
+  <%= f.text_field :photo_url, size: '100'  %>
+  </div>
+
+
+  <div class="houseFormDiv">
+  <%= f.label :region  %>
+  <%= f.text_field :region, size: "100" %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.label :seat  %>
+  <%= f.text_field :seat, size: "100" %>
+  </div>
+
+  <div class="houseFormDiv">
+  <%= f.submit "Save", class: "submitButton" %>
+  </div>
+
+
+
+<% end  %>
+
+<% if @house.id != nil %>
+  <%= form_for @house, data: { confirm: "Do you really want to delete this post?"}, method: :delete do |f| %>
+    <%= f.submit "Delete", class: "deleteButton" %>
+  <% end  %>
+<% end  %>

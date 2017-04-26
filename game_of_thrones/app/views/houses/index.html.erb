@@ -1,0 +1,8 @@
+<h1>List of Great Houses</h1>
+<p><%= link_to "Create New House", new_house_path %>
+<% @houses.each do |house| %>
+<div class="imageWrapper">
+  <%= link_to image_tag(house.photo_url, class: "housePhoto"), house_path(house) %>
+  <p class="housePhotoText"><%= house.house %></p>
+</div>
+<% end %>
